@@ -14,7 +14,7 @@ const dest = api.generateAddress();
 const rootSender = "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh"
 const rootSecret = "snoPBrXtMeMyMHUVTgbuqAfg1SUTb";
 
-console.log("Sender address: {}", dest.address)
+console.log("Reciever address: {}", dest.address)
 
 async function doPrepare() {
   
@@ -50,8 +50,19 @@ async function doSubmit(txBlob) {
   return latestLedgerVersion + 1
 }
 
+async function getTran (txID, minLedgerVersion){
+  try {
+    tx = await api.getTransaction(txID, {minLedgerVersion: minLedgerVersion})
+    console.log("Transaction result:", tx.outcome.result)
+    console.log("Balance changes:", JSON.stringify(tx.outcome.balanceChanges))
+  } catch(error) {
+    console.log("Couldn't get transaction outcome:", error)
+  }
+}
 
-// ------main-----
+// ------main----- dont forget apply ladger: rippled ledger_accept --conf ~/dev/ripple/cfg/rippled.cfg
+
+var txIdGlobal;
 
 api.connect().then(() => {
   console.log('Connected');
@@ -61,6 +72,7 @@ api.connect().then(() => {
   
 const response = api.sign(prepared, rootSecret)
 const txID = response.id
+txIdGlobal = txID
 console.log("Identifying hash:", txID)
 const txBlob = response.signedTransaction
 console.log("Signed blob:")
@@ -70,7 +82,16 @@ console.log("Signed blob:")
   console.log('Order Prepared' + blob);
   return doSubmit(blob);
 }).then((ladgerNumber) => {
-    console.log('ledgerNumber', ladgerNumber);
+    console.log('ledgerNumber: ', ladgerNumber);
+    return api.on('ledger', ledger => {
+      console.log("Ledger version", ledger.ledgerVersion, "was validated??.")
+      if (ledger.ledgerVersion > maxLedgerVersion) {
+        console.log("If the transaction hasn't succeeded by now, it's expired")
+      }
+    })
+  }).then((validated) => {
+    console.log('validated');
+    //TODO return getTran(txIdGlobal)
 }).then(() => {
   api.disconnect().then(() => {
     console.log('api disconnected');
@@ -80,44 +101,4 @@ console.log("Signed blob:")
 
 //--- end main ----
 
-
-return;
-
-api.connect().then(() => {
-    
-    doPrepare().then((prep) => {
-	console.log("Prep JSON:", prep)    
-	const txJSON = JSON.stringify(prep)
-	console.log("Stringify JSON:", txJSON)    
-			    
-
-    // Continuing from the previous step...
-
-    const response = api.sign(txJSON,rootSecret)
-    const txID = response.id
-    console.log("Identifying hash:", txID)
-    const txBlob = response.signedTransaction
-    console.log("Signed blob:", txBlob)
-
-    })	.catch(); //console.error
-    //ValidationError: Serialized transaction does not match original txJSON. See `error.data
-
-    //const earliestLedgerVersion = doSubmit(txBlob)
-
-    return txJSON
-
-}).then(info => {
-  console.log(info);
-  console.log('getAccountInfo done');
-
-
-}).then(() => {
-  return api.disconnect();
-}).then(() => {
-  console.log('done and disconnected.');
-}).catch(console.error);
-
-if (true) return;
-
-// Continuing after connecting to the API
 

@@ -8,7 +8,7 @@ const api = new RippleAPI({
 });
 api.connect().then(() => {
   /* begin custom code ------------------------------------ */
-  const myAddress = 'r9tt1Ac7x7DFhDwCiJNkTg2iBTC7keBYTS'; 
+  const myAddress = 'rUjH3m2bPKmu9QsEQntP7o8oqbZNUK5XbV'; 
 
     
     console.log('getting account info for', myAddress);
