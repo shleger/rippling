@@ -4,11 +4,11 @@ const RippleAPI = require('ripple-lib').RippleAPI;
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 const api = new RippleAPI({
-  server: 'wss://ECSD00300B99.epam.com:6006' // local rippled server
+  server: 'wss://localhost:6006' // local rippled server
 });
 api.connect().then(() => {
   /* begin custom code ------------------------------------ */
-  const myAddress = 'rUjH3m2bPKmu9QsEQntP7o8oqbZNUK5XbV'; 
+  const myAddress = 'rGgNm3JbZJPvWgf3q2ELPLfNEvndy2dF45'; 
 
     
     console.log('getting account info for', myAddress);
