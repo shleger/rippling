@@ -11,8 +11,7 @@
             "name": "Launch test",
             
             // "program": "${workspaceFolder}/ledger_ping.js" 
-               "program": "${workspaceFolder}/ledger_accept.js" 
-            // "program": "${workspaceFolder}/sendTutXrp.js" 
+               "program": "${file}"             
           }
           
     ]
