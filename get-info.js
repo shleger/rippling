@@ -7,18 +7,19 @@ const api = new RippleAPI({
   server: 'wss://localhost:6006' // local rippled server
 });
 api.connect().then(() => {
-  /* begin custom code ------------------------------------ */
-  const myAddress = 'rGgNm3JbZJPvWgf3q2ELPLfNEvndy2dF45'; 
-
+  /* begin adress to check ------------------------------------ */
+  const myAddress = 'rBTsTvuRNVUtsM1UjbZ3xAua1AtWKiwtoE'; 
+  
     
     console.log('getting account info for', myAddress);
     return api.getAccountInfo(myAddress);
+  /* end adress to check -------------------------------------- */
 
 }).then(info => {
   console.log(info);
   console.log('getAccountInfo done');
 
-  /* end custom code -------------------------------------- */
+  
 }).then(() => {
   return api.disconnect();
 }).then(() => {

@@ -10,20 +10,19 @@ const api = new RippleAPI({
 });
 
 
-const dest = api.generateAddress();
-const rootSender = "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh"
-const rootSecret = "snoPBrXtMeMyMHUVTgbuqAfg1SUTb";
+const dest = "rUZG6irJ75pNutca3KEcS9UcuSDbS7BNQ3";
+const senderAddress = "rBTsTvuRNVUtsM1UjbZ3xAua1AtWKiwtoE"
+const senderSecret = "shuckeHBrsn9SupNVGkGWuLv3muo3";
 
 console.log("Reciever address: {}", dest.address)
-console.log("Reciever secret: {}", dest.secret)
 
 async function doPrepare() {
 
   const preparedTx = await api.prepareTransaction({
     "TransactionType": "Payment",
-    "Account": rootSender,
-    "Amount": api.xrpToDrops("220"), // Same as "Amount": "22000000"
-    "Destination": dest.address
+    "Account": senderAddress,
+     "Amount": api.xrpToDrops("10"), // Same as "Amount": "22000000"
+    "Destination": dest
   }, {
     // Expire this transaction if it doesn't execute within ~5 minutes:
     "maxLedgerVersionOffset": 2
@@ -71,7 +70,7 @@ api.connect().then(() => {
 }).then(prepared => {
   console.log('Order Prepared: ' + prepared);
 
-  const response = api.sign(prepared, rootSecret)
+  const response = api.sign(prepared, senderSecret)
   const txID = response.id
   txIdGlobal = txID
   console.log("Identifying hash:", txID)

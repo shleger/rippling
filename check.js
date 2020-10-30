@@ -10,30 +10,30 @@ const api = new RippleAPI({
 });
 
 
-const dest = api.generateAddress();
-const rootSender = "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh"
-const rootSecret = "snoPBrXtMeMyMHUVTgbuqAfg1SUTb";
+const senderAddres = "rBTsTvuRNVUtsM1UjbZ3xAua1AtWKiwtoE"
+const senderSecret = "shuckeHBrsn9SupNVGkGWuLv3muo3";
 
-console.log("Reciever address: {}", dest.address)
-console.log("Reciever secret: {}", dest.secret)
+//sender 220 - raRrtqnF2yyjSw9mixgwckgbxC7Kf9DTWi
+// reciever - rnJ4VcgLwMZTsC17nKAwvoBAochessgaep
+
+
+const checkCreation = {
+  "destination": "rUZG6irJ75pNutca3KEcS9UcuSDbS7BNQ3",
+    "sendMax": {
+    "currency": "XRP",
+    "value": "1" // RippleAPI uses decimal XRP, not integer drops
+    
+  }
+  
+};
+
 
 async function doPrepare() {
-
-  const preparedTx = await api.prepareTransaction({
-    "TransactionType": "Payment",
-    "Account": rootSender,
-    "Amount": api.xrpToDrops("220"), // Same as "Amount": "22000000"
-    "Destination": dest.address
-  }, {
-    // Expire this transaction if it doesn't execute within ~5 minutes:
-    "maxLedgerVersionOffset": 2
-  })
-  const maxLedgerVersion = preparedTx.instructions.maxLedgerVersion
-  console.log("Prepared transaction instructions:", preparedTx.txJSON)
-  console.log("Transaction cost:", preparedTx.instructions.fee, "XRP")
-  console.log("Transaction expires after ledger:", maxLedgerVersion)
-  return preparedTx.txJSON
+  return api.prepareCheckCreate(senderAddres,checkCreation);
 }
+
+
+
 
 // use txBlob from the previous example
 async function doSubmit(txBlob) {
@@ -69,18 +69,19 @@ api.connect().then(() => {
   console.log('Connected');
   return doPrepare()
 }).then(prepared => {
-  console.log('Order Prepared: ' + prepared);
+  const prepJson = prepared.txJSON;
+  console.log('Order Prepared: ' + prepJson);
 
-  const response = api.sign(prepared, rootSecret)
+  const response = api.sign(prepJson, senderSecret)
   const txID = response.id
   txIdGlobal = txID
-  console.log("Identifying hash:", txID)
+  console.log("Identifying hash txID:", txID)
   const txBlob = response.signedTransaction
   console.log("Signed blob:")
 
   return txBlob;
 }).then(blob => {
-  console.log('Order Prepared' + blob);
+  console.log('Order Prepared txBlob: ' + blob);
   return doSubmit(blob);
 }).then((ladgerNumber) => {
   console.log('ledgerNumber: ', ladgerNumber);
@@ -91,7 +92,7 @@ api.connect().then(() => {
     }
   })
 }).then((validated) => {
-  console.log('validated');
+  console.log('validated:' + validated);
   //TODO return getTran(txIdGlobal)
 }).then(() => {
   api.disconnect().then(() => {
