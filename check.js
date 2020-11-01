@@ -10,20 +10,19 @@ const api = new RippleAPI({
 });
 
 
-const senderAddress = "rBTsTvuRNVUtsM1UjbZ3xAua1AtWKiwtoE"
-const senderSecret = "shuckeHBrsn9SupNVGkGWuLv3muo3";
+const dest = "rBdMc4DubG2zrZYG3gH21vUU2wmD5DNk1Q";
+const senderAddress = "r3jPeLneNdgTkxXadbWDxKrLQMnVU2FCLx"
+const senderSecret = "sheoYb6ZpJMJZDKi8Ex36NHKsVrfQ";
 
-// Reciever address: {} rhZ95VuHT7P2mfPUqXRBENboKNDesruNkg
-// Reciever secret: {} snUdKMejjWtzq4X1JTsibbNHBpweG
-//"LedgerIndex" : "FC8C39632BF1A29CDE6F572CE81D531AA252F346C232EE05A8E366A1E0FE9672"
+//"LedgerIndex" : "F864328891149C87F7A1C0FE1DA1B45AC29826C0AB17BE3C716B0DD5B04832C4"
 
 
 
 const checkCreation = {
-  "destination": "rhZ95VuHT7P2mfPUqXRBENboKNDesruNkg",
+  "destination": dest,
     "sendMax": {
     "currency": "XRP",
-    "value": "1" // RippleAPI uses decimal XRP, not integer drops
+    "value": "9" // RippleAPI uses decimal XRP, not integer drops
     
   }
   

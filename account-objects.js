@@ -14,7 +14,7 @@ api.connect().then(() => {
 
   const account_objects_request = {
     command: "account_objects",
-    account: "rBTsTvuRNVUtsM1UjbZ3xAua1AtWKiwtoE",
+    account: "r3jPeLneNdgTkxXadbWDxKrLQMnVU2FCLx",
     ledger_index: "validated",
     type: "check"
   }
@@ -23,7 +23,7 @@ api.connect().then(() => {
 }).then(response => {
   console.log("account_objects response:", JSON.stringify(response))
 
-// Disconnect and return
+  // Disconnect and return
 }).then(() => {
   api.disconnect().then(() => {
     console.log('Disconnected')

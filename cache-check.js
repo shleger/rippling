@@ -10,12 +10,10 @@ const api = new RippleAPI({
 });
 
 
-const cacheRecieverAddres = "rhZ95VuHT7P2mfPUqXRBENboKNDesruNkg"
-const cacheRecieverSecret = "snUdKMejjWtzq4X1JTsibbNHBpweG";
+const cacheReceiverAddress = "rBdMc4DubG2zrZYG3gH21vUU2wmD5DNk1Q"
+const cacheReceiverSecret = "ssTDSDKjEAoeWrPA6or4erV2Vjadp";
 
-// Reciever address: {} rhZ95VuHT7P2mfPUqXRBENboKNDesruNkg
-// Reciever secret: {} snUdKMejjWtzq4X1JTsibbNHBpweG
-//"LedgerIndex" : "FC8C39632BF1A29CDE6F572CE81D531AA252F346C232EE05A8E366A1E0FE9672"
+//"LedgerIndex" : "6874C3A047E690DF4244C6C8E0D497512D514463A10EBAE462A2B96D96C5FEF9"
 
 // Order Prepared: {"Account":"rhZ95VuHT7P2mfPUqXRBENboKNDesruNkg","TransactionType":"CheckCash","CheckID":"FC8C39632BF1A29CDE6F572CE81D531AA252F346C232EE05A8E366A1E0FE9672","Amount":"1000000","Flags":2147483648,"LastLedgerSequence":22,"Fee":"12","Sequence":17}
 // Identifying hash txID: 7C1689A99C75674FBE9068D34E01076F8860FFDAB670EECB466A8206DDC1735F
@@ -31,7 +29,7 @@ const cacheRecieverSecret = "snUdKMejjWtzq4X1JTsibbNHBpweG";
 
 
 const cacheCheck =  {
-  "checkID": "FC8C39632BF1A29CDE6F572CE81D531AA252F346C232EE05A8E366A1E0FE9672",
+  "checkID": "791030A5FA904D472D82319EFF7737FC698F7248F120ACB49F6E271FF08754A8",
   "amount": {
     "currency": "XRP",
     "value": "1" // Cash for exactly 1 XRP
@@ -40,7 +38,7 @@ const cacheCheck =  {
 
 
 async function doPrepare() {
-  return api.prepareCheckCash(cacheRecieverAddres,cacheCheck);
+  return api.prepareCheckCash(cacheReceiverAddress,cacheCheck);
 }
 
 
@@ -83,7 +81,7 @@ api.connect().then(() => {
   const prepJson = prepared.txJSON;
   console.log('Order Prepared: ' + prepJson);
 
-  const response = api.sign(prepJson, cacheRecieverSecret)
+  const response = api.sign(prepJson, cacheReceiverSecret)
   const txID = response.id
   txIdGlobal = txID
   console.log("Identifying hash txID:", txID)
