@@ -29,10 +29,10 @@ const cacheReceiverSecret = "ssTDSDKjEAoeWrPA6or4erV2Vjadp";
 
 
 const cacheCheck =  {
-  "checkID": "791030A5FA904D472D82319EFF7737FC698F7248F120ACB49F6E271FF08754A8",
+  "checkID": "8BD383F0BE0F00F9A252A089300DFA2F9791889F25A20AF21A1CED03F70632A7",
   "amount": {
     "currency": "XRP",
-    "value": "1" // Cash for exactly 1 XRP
+    "value": "8" // Cash for exactly 1 XRP
   }
 };
 

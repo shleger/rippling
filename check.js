@@ -14,7 +14,7 @@ const dest = "rBdMc4DubG2zrZYG3gH21vUU2wmD5DNk1Q";
 const senderAddress = "r3jPeLneNdgTkxXadbWDxKrLQMnVU2FCLx"
 const senderSecret = "sheoYb6ZpJMJZDKi8Ex36NHKsVrfQ";
 
-//"LedgerIndex" : "F864328891149C87F7A1C0FE1DA1B45AC29826C0AB17BE3C716B0DD5B04832C4"
+//"LedgerIndex" : "D78CEEAD0FB3A23E2DB9F4644DDCCA0DF32797ACD121DF807C2F0AF885195A7C"
 
 
 
@@ -22,7 +22,7 @@ const checkCreation = {
   "destination": dest,
     "sendMax": {
     "currency": "XRP",
-    "value": "9" // RippleAPI uses decimal XRP, not integer drops
+    "value": "8" // RippleAPI uses decimal XRP, not integer drops
     
   }
   
