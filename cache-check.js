@@ -10,8 +10,8 @@ const api = new RippleAPI({
 });
 
 
-const cacheReceiverAddress = "rBdMc4DubG2zrZYG3gH21vUU2wmD5DNk1Q"
-const cacheReceiverSecret = "ssTDSDKjEAoeWrPA6or4erV2Vjadp";
+const cacheReceiverAddress = "rQBpd863EzTqde6sfKHFVVmPA6bKE3RNAJ"
+const cacheReceiverSecret = "ssRBr2PXJB3LCQMhM8x5CcjJ6j5xk";
 
 //"LedgerIndex" : "6874C3A047E690DF4244C6C8E0D497512D514463A10EBAE462A2B96D96C5FEF9"
 
@@ -29,10 +29,10 @@ const cacheReceiverSecret = "ssTDSDKjEAoeWrPA6or4erV2Vjadp";
 
 
 const cacheCheck =  {
-  "checkID": "8BD383F0BE0F00F9A252A089300DFA2F9791889F25A20AF21A1CED03F70632A7",
+  "checkID": "D20C8B315B1A2F97867B3C74EA796B1DC42EA2C9FEF152382A7766C0540617B3",
   "amount": {
     "currency": "XRP",
-    "value": "8" // Cash for exactly 1 XRP
+    "value": "4" // Cash for exactly [x] XRP
   }
 };
 

@@ -10,9 +10,9 @@ const api = new RippleAPI({
 });
 
 
-const dest = "rBdMc4DubG2zrZYG3gH21vUU2wmD5DNk1Q";
-const senderAddress = "r3jPeLneNdgTkxXadbWDxKrLQMnVU2FCLx"
-const senderSecret = "sheoYb6ZpJMJZDKi8Ex36NHKsVrfQ";
+const dest = "rQBpd863EzTqde6sfKHFVVmPA6bKE3RNAJ";
+const senderAddress = "rf52DMnAZqgWFjs6Pa8Lijis94Fbu8rmA7"
+const senderSecret = "shDpZxDQwqrE1FEcgH1xeEjttwef5";
 
 //"LedgerIndex" : "D78CEEAD0FB3A23E2DB9F4644DDCCA0DF32797ACD121DF807C2F0AF885195A7C"
 

@@ -10,19 +10,9 @@ const api = new RippleAPI({
 });
 
 
-const dest = "rBdMc4DubG2zrZYG3gH21vUU2wmD5DNk1Q";
-const senderAddress = "r3jPeLneNdgTkxXadbWDxKrLQMnVU2FCLx"
-const senderSecret = "sheoYb6ZpJMJZDKi8Ex36NHKsVrfQ";
-
-// 1
-// Reciever address: {} r3jPeLneNdgTkxXadbWDxKrLQMnVU2FCLx
-// Reciever secret: {} sheoYb6ZpJMJZDKi8Ex36NHKsVrfQ
-
-// 2
-// Reciever address: {} rBdMc4DubG2zrZYG3gH21vUU2wmD5DNk1Q
-// Reciever secret: {} ssTDSDKjEAoeWrPA6or4erV2Vjadp
-
-
+const dest = "rQBpd863EzTqde6sfKHFVVmPA6bKE3RNAJ";
+const senderAddress = "rf52DMnAZqgWFjs6Pa8Lijis94Fbu8rmA7"
+const senderSecret = "shDpZxDQwqrE1FEcgH1xeEjttwef5";
 
 
 console.log("Reciever address: {}", dest)
@@ -32,7 +22,7 @@ async function doPrepare() {
   const preparedTx = await api.prepareTransaction({
     "TransactionType": "Payment",
     "Account": senderAddress,
-     "Amount": api.xrpToDrops("10.20"), // Same as "Amount": "22000000"
+     "Amount": api.xrpToDrops("10.20"), 
     "Destination": dest
   }, {
     // Expire this transaction if it doesn't execute within ~5 minutes:

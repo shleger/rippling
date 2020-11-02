@@ -18,6 +18,7 @@ socket.addEventListener('open', (event) => {
 })
 socket.addEventListener('message', (event) => {
   console.log('Got message from server:', event.data)
+  socket.close()
 })
 socket.addEventListener('close', (event) => {
   // Use this event to detect when you have become disconnected

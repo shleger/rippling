@@ -22,7 +22,7 @@ async function doPrepare() {
   const preparedTx = await api.prepareTransaction({
     "TransactionType": "Payment",
     "Account": rootSender,
-    "Amount": api.xrpToDrops("50000"), // Same as "Amount": "22000000"
+    "Amount": api.xrpToDrops("50000"), 
     "Destination": dest.address
   }, {
     // Expire this transaction if it doesn't execute within ~5 minutes:
