@@ -1,21 +1,7 @@
 {
-    "account": "rf52DMnAZqgWFjs6Pa8Lijis94Fbu8rmA7",
-    "account_objects": [
-        {
-            "Account": "rf52DMnAZqgWFjs6Pa8Lijis94Fbu8rmA7",
-            "Destination": "rQBpd863EzTqde6sfKHFVVmPA6bKE3RNAJ",
-            "DestinationNode": "0000000000000000",
-            "Flags": 0,
-            "LedgerEntryType": "Check",
-            "OwnerNode": "0000000000000000",
-            "PreviousTxnID": "8CD8658C540D16A9E2B5F46C9CCD731FFCAF15A1D6EE67A35C9ED159BF6A5070",
-            "PreviousTxnLgrSeq": 7,
-            "SendMax": "8000000",
-            "Sequence": 4,
-            "index": "B83B5AFEAC8D82A20873D2526B40E677F39A19977061D105D8A2A73092643DC7"
-        }
-    ],
-    "ledger_hash": "627AC66083C0A356F42E5D83F8ECAB8AA12A218ED776D1BFB107BA162AD9A1AC",
-    "ledger_index": 7,
+    "account": "rBd45CEaZfoWt9DRGNCLsbUFGy1EYAK8nN",
+    "account_objects": [],
+    "ledger_hash": "B8031C7B2215F7918E11FB89C6A8E0F7D8F15D50A3E13C1B2EF98AAF8F3ECDE0",
+    "ledger_index": 10,
     "validated": true
 }

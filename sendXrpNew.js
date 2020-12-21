@@ -10,9 +10,9 @@ const api = new RippleAPI({
 });
 
 
-const dest = "rQBpd863EzTqde6sfKHFVVmPA6bKE3RNAJ";
-const senderAddress = "rf52DMnAZqgWFjs6Pa8Lijis94Fbu8rmA7"
-const senderSecret = "shDpZxDQwqrE1FEcgH1xeEjttwef5";
+const dest = "rBsJ6QZQpcpE3s7YUFdpwaun4VMpXRECUb";
+const senderAddress = "rBd45CEaZfoWt9DRGNCLsbUFGy1EYAK8nN"
+const senderSecret = "shJGUoTcB69yn8kwDKQkj9jjcNg36";
 
 
 console.log("Reciever address: {}", dest)

@@ -8,10 +8,10 @@ const api = new RippleAPI({
 });
 api.connect().then(() => {
   /* begin adress to check ------------------------------------ */
-  const myAddress = 'rQBpd863EzTqde6sfKHFVVmPA6bKE3RNAJ'; 
+  const myAddress = 'rBsJ6QZQpcpE3s7YUFdpwaun4VMpXRECUb'; 
 
-  // Reciever address: {} rQBpd863EzTqde6sfKHFVVmPA6bKE3RNAJ
-  // Reciever secret: {} ssRBr2PXJB3LCQMhM8x5CcjJ6j5xk
+  // Reciever address: {} rBsJ6QZQpcpE3s7YUFdpwaun4VMpXRECUb
+  // Reciever secret: {} spAG6SUJ7EMLtiNZ1ZAojSBPQByWC
 
     
     console.log('getting account info for', myAddress);

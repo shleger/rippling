@@ -1,0 +1,29 @@
+#!/bin/bash
+
+self(){
+  DIR=$( cd "$( dirname "$0" )/" && pwd)
+  echo $DIR
+}
+
+$(self)/down
+
+PORT=80
+
+CUSTOMPORT=$(echo $1|egrep "^[0-9]+$"|wc -l)
+
+if [[ "$CUSTOMPORT" -gt "0" ]]; then
+    PORT=$1
+fi
+
+docker run \
+    -dit \
+    --name rippled \
+    -p $PORT:80 \
+    -p 6006:6006 \
+    -p 5005:5005 \
+    -p 5006:5006 \
+    -p 7007:7007 \
+    -v $(self)/../config:/config/ \
+    rippled:latest
+
+docker logs -f rippled

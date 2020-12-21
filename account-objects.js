@@ -14,7 +14,7 @@ api.connect().then(() => {
 
   const account_objects_request = {
     command: "account_objects",
-    account: "rf52DMnAZqgWFjs6Pa8Lijis94Fbu8rmA7",
+    account: "rBd45CEaZfoWt9DRGNCLsbUFGy1EYAK8nN",
     ledger_index: "validated",
     type: "check"
   }
