@@ -30,8 +30,7 @@ async function doPrepare() {
        "issuer" : senderAddress
     }
     ,"Fee": "12"
-    ,"Flags": 2147483648
-  }, {
+    }, {
     // Expire this transaction if it doesn't execute within ~5 minutes:
     "maxLedgerVersionOffset": 2
   })
