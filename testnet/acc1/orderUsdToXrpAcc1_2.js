@@ -5,34 +5,36 @@ const accs =      require('../accounts')
 // process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 console.log("================START TRANSACTION==================")
-const api = new RippleAPI({server: accs.testNetServer});
 
-const dest = accs.account3Address;
-const senderAddress = accs.account2Address 
-const senderSecret = accs.account2Secret;
+const api = new RippleAPI({
+  server: accs.testNetServer
+});
 
 
-console.log("Reciever address: {}", dest)
+const senderAddress = accs.account1Address
+const senderSecret = accs.account1Secret;
+const issuer = accs.account2Address;
+
+
 
 async function doPrepare() {
-  const trustLine = {
-    // "currency": "EUR",
-    "currency": "USD",
-    "counterparty": dest,
-    "limit": "100",
-    // "qualityIn": 0.91,
-    // "qualityOut": 0.87,
-    "ripplingDisabled": false,
-    "frozen": false,
-    "memos": [
-      {
-        "type": "test_trustline",
-        "format": "text/plain",
-        "data": "extend trustline for ...DgB67x address"
-      }
-    ]
+
+  const order = {
+    "direction": "buy",
+    "quantity": {
+      "currency": "drops",
+      "value": api.xrpToDrops(59.999)
+    },
+    "totalPrice": {
+      "currency": "USD",
+      "counterparty": issuer,
+      "value": "1"
+    },
+    "passive": false,
+    "fillOrKill": true
   };
-  const preparedTx = await api.prepareTrustline(senderAddress,trustLine);
+
+  const preparedTx = await api.prepareOrder(senderAddress,order)
   const maxLedgerVersion = preparedTx.instructions.maxLedgerVersion
   console.log("Prepared transaction instructions:", preparedTx.txJSON)
   console.log("Transaction cost:", preparedTx.instructions.fee, "XRP")

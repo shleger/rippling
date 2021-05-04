@@ -16,6 +16,7 @@ console.log("Reciever address: {}", dest)
 
 async function doPrepare() {
   const trustLine = {
+    // "currency": "EUR",
     "currency": "USD",
     "counterparty": dest,
     "limit": "100",
