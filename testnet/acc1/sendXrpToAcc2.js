@@ -19,8 +19,8 @@ const senderSecret = accs.account1Secret;
 console.log("Reciever address: {}", dest)
 
 async function doPrepare() {
-
-  const preparedTx = await api.prepareTransaction({
+//const preparedTx = await api.prepareTransaction({
+  const preparedTx = await api.preparePayment({
     "TransactionType": "Payment",
     "Account": senderAddress,
      "Amount": api.xrpToDrops("1.20"), 

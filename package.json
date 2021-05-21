@@ -1,10 +1,12 @@
 {
-  "name": "genAccount",
+  "name": "ripple_box",
   "version": "0.0.1",
   "license": "MIT",
   "private": true,
   "//": "Change the license to something appropriate. You may want to use 'UNLICENSED' if you are just starting out.",
   "dependencies": {
+    "dotenv": "^9.0.0",
+    "express": "^4.17.1",
     "ripple-lib": "*"
   },
   "devDependencies": {

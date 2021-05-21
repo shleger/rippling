@@ -21,3 +21,9 @@ module.exports.account3Address = 'r3BrvN87m6Gg54C5oTU1zT6EpeRgTdPkDc';
 // Secret
 module.exports.account3Secret='sng2xpK7FpGqzXPJPKhRex8e3C89p';
 
+// Your Testnet Credentials
+// Address
+module.exports.account4Address = 'rUF3ebvXJ1caD6jX7hy7uVrcoDvUiXjabE';
+// Secret
+module.exports.account4Secret='sa9LzL6sxdBcXPMNGqyZBg7FybzD8';
+
